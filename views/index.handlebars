@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Hangouts R Us</title>
+    {{> imports}}
+    <link rel="stylesheet" href="css/pure-min.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+    <div id="main">
+        <div class="header">
+            <h1>Hangouts R Us</h1>
+            <h2>Need help making plans? We know the struggle.</h2>
+        </div>
+
+		<style scoped>
+	        .button-xsmall {font-size: 70%;}
+	        .button-small {font-size: 85%;}
+	    </style>
+
+	    <h3 id="note">{{note}}</h3>
+
+		<div class="row">
+
+			<div class="center">
+				<div class="onehunnit col-md-6">
+			        <form method="get" action ="/register" class="pure-form pure-form-stacked">
+					    <fieldset>
+					    	<div class="register">
+						        <input style="text-align:center"required="" name ="emailSign" id="emailSign" type="email" placeholder="Email">
+
+						        <input style="text-align:center" required="" name="passwordSign" id="passwordSign" type="password" placeholder="Password">
+
+						        <input style="text-align:center" required="" name="passwordSign2" id="passwordSign2" type="password" placeholder="Confirm Password">
+					        </div>
+					        <div style="padding-top:5px">
+					       	 	<button type="submit" class="inputbtn inputreg">Register</button>
+					    	</div>
+					    </fieldset>
+					</form>
+				</div>
+			</div>
+
+			<button class="optbtn regbtn">Register</button>
+
+			<div class="center login">
+			    <div class="onehunnit scol-md-6">
+			        <form method="get" action = "/homepage2" class="pure-form pure-form-stacked">
+					    <fieldset>
+					    	<div>
+						        <input style="text-align:center" required="" id="email" type="email" name="email" placeholder="Email">
+
+						        <input style="text-align:center" required="" id="password" type="password" name="password" placeholder="Password">
+
+						        <label id="remme" for="remember" class="pure-checkbox">
+						        <input id="remember" type="checkbox"> Remember Me
+						        </label>
+					    	</div>
+
+					        <button type="submit" class="inputbtn inputlog">Login</button>
+					    </br></br>
+					    </fieldset>
+					</form>
+				</div>
+			</div>
+
+			<button class="optbtn loginbtn"><name>Login</name></button>
+			        	
+		</div>
+    </div> <!-- End of Main -->
+
+    <script>
+    	$(document).ready(function() {
+			$(".inputreg").hide();
+			$(".inputlog").hide();
+		});
+
+		$('.regbtn').click(function (e) {
+			e.preventDefault();
+			$(".regbtn").hide();
+			
+		    if ($('.register').is(":hidden")) {
+		        $('.register').slideDown('slow');
+		        $(".inputreg").show();
+		    }
+
+		    if ($('.login').is(":visible")) {
+		        $('.login').slideUp('slow');
+		        $(".inputlog").hide();
+		    }
+
+		    $(".loginbtn").show();
+		});
+
+		$('.loginbtn').click(function (e) {
+			e.preventDefault();
+			$(".loginbtn").hide();
+
+		    if ($('.login').is(":hidden")) {
+		        $('.login').slideDown('slow');
+		        $(".inputlog").show();
+		    }
+
+		    if ($('.register').is(":visible")) {
+		        $('.register').slideUp('slow');
+		        $(".inputreg").hide();
+		    }
+
+		    $(".regbtn").show();
+		});
+
+    </script>
+</body>
+</html>
+
